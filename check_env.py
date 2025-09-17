@@ -4,7 +4,7 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F
 
-print("PyTorch version:", torch._version_)
+print("PyTorch version:", torch.__version__)
 
 # Load CIFAR-10
 transform = transforms.Compose([transforms.ToTensor()])
@@ -14,8 +14,8 @@ trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True)
 
 # Define a simple CNN
 class Net(nn.Module):
-    def _init_(self):
-        super(Net, self)._init_()
+    def __init__(self):
+        super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
